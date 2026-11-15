@@ -218,10 +218,10 @@
       </div>
     </div>
 
-    <!-- ===== MODAL DETAIL BAHAN BAKU & HALAL (BARU) ===== -->
+    <!-- ===== MODAL DETAIL BAHAN BAKU & HALAL ===== -->
     <div id="bahan-modal" class="fixed inset-0 bg-black/50 backdrop-blur-sm hidden items-center justify-center z-[70] p-4">
-      <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl">
-        <div class="flex justify-between items-center mb-4 border-b pb-3">
+      <div class="bg-white rounded-3xl max-w-lg w-full p-6 shadow-2xl max-h-[90vh] overflow-y-auto">
+        <div class="flex justify-between items-center mb-4 border-b pb-3 sticky top-0 bg-white z-10">
           <h3 class="text-xl font-bold text-stone-800 flex items-center gap-2">
             <i class="fas fa-shield-halal text-green-600"></i> Detail Bahan Baku
           </h3>
@@ -464,11 +464,11 @@
                 </div>
                 <div class="p-4 flex-1 flex flex-col justify-between">
                   <div>
-                    <div class="flex justify-between items-start">
-                      <h3 class="text-xl font-bold text-stone-800">${item.name}</h3>
-                      <span class="text-[10px] font-bold px-2 py-1 rounded-md ${badgeHalalClass}"><i class="fas ${badgeHalalIcon} mr-1"></i>${item.statusHalal}</span>
+                    <div class="flex justify-between items-start gap-2">
+                      <h3 class="text-xl font-bold text-stone-800 leading-tight">${item.name}</h3>
+                      <span class="text-[10px] font-bold px-2 py-1 rounded-md whitespace-nowrap ${badgeHalalClass}"><i class="fas ${badgeHalalIcon} mr-1"></i>${item.statusHalal}</span>
                     </div>
-                    <p class="text-xs text-stone-500 mb-2 flex items-center gap-1"><i class="fas fa-store-alt text-amber-600"></i> ${item.penjual}</p>
+                    <p class="text-xs text-stone-500 mb-2 mt-1 flex items-center gap-1"><i class="fas fa-store-alt text-amber-600"></i> ${item.penjual}</p>
                     <p class="text-xs mb-2 flex items-start gap-1"><i class="fas fa-map-pin text-amber-600 mt-1"></i> <span class="text-stone-600">${item.alamat}</span></p>
                   </div>
                   
@@ -557,7 +557,7 @@
               bahanHtml += `
                 <div class="flex justify-between items-center py-2 border-b border-gray-100 last:border-0">
                   <div>
-                    <p class="font-medium text-stone-800">${bahan.nama}</p>
+                    <p class="font-medium text-stone-800 text-sm">${bahan.nama}</p>
                     <p class="text-xs text-stone-500">Asal: ${bahan.asal}</p>
                   </div>
                   <div class="text-right">
@@ -580,6 +580,17 @@
                 <h5 class="font-bold text-stone-700 mb-2 border-b pb-2"><i class="fas fa-boxes text-amber-600 mr-1"></i> Daftar Bahan Baku</h5>
                 ${bahanHtml}
               </div>
+
+              <!-- TOMBOL PANDUAN SERTIFIKASI -->
+              ${item.statusHalal !== 'Halal Certified' ? `
+              <div class="mt-4 border-2 border-dashed border-amber-400 bg-amber-50 p-4 rounded-xl">
+                <h5 class="font-bold text-stone-800 mb-1"><i class="fas fa-hands-helping text-amber-600 mr-1"></i> Pendampingan Sertifikasi Halal</h5>
+                <p class="text-xs text-stone-600 mb-3">UMKM ini sedang dalam proses menuju sertifikasi halal. JelajahRasa menyediakan fitur pendampingan administrasi untuk pengurusan sertifikat melalui BPJPH.</p>
+                <a href="sertifikasi.html" class="inline-flex items-center justify-center w-full bg-amber-600 hover:bg-amber-700 text-white text-sm font-semibold py-2 rounded-lg transition shadow-md">
+                  <i class="fas fa-external-link-alt mr-2"></i> Lihat Alur & Daftar Sertifikasi
+                </a>
+              </div>
+              ` : ''}
               
               <div class="mt-4 bg-blue-50 text-blue-800 text-xs p-3 rounded-lg">
                 <i class="fas fa-info-circle mr-1"></i> <strong>Traceability:</strong> Data ini disediakan untuk transparansi konsumen. Untuk produk berstatus "Perlu Verifikasi", UMKM didampingi untuk mengecek pemasok agar memenuhi standar Wajib Halal 2026.
