@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JelajahRasa | Pendampingan Sertifikasi Halal UMKM</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style> 
+    * { font-family: 'Inter', sans-serif; } 
+    body { background: #fcf8f3; } 
+    .timeline-line::before {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0; left: 50%;
+      width: 2px;
+      background: #fcd34d; /* amber-300 */
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col">
+
+  <!-- ===== HEADER ===== -->
+  <header class="bg-white/95 backdrop-blur-sm shadow-md sticky top-0 z-30 border-b border-amber-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+      <a href="index.html" class="flex items-center space-x-3">
+        <div class="w-10 h-10 bg-amber-600 rounded-xl flex items-center justify-center text-white shadow-md">
+          <i class="fas fa-utensils text-lg"></i>
+        </div>
+        <div>
+          <h1 class="text-xl font-bold tracking-tight text-stone-800">Jelajah<span class="text-amber-600">Rasa</span></h1>
+          <p class="text-[10px] text-stone-500 -mt-1">pendampingan halal</p>
+        </div>
+      </a>
+      <a href="index.html" class="text-sm font-medium text-amber-700 hover:text-amber-800 flex items-center gap-2">
+        <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+      </a>
+    </div>
+  </header>
+
+  <!-- ===== MAIN CONTENT ===== -->
+  <main class="flex-grow max-w-4xl mx-auto px-4 py-12 w-full">
+    <div class="text-center mb-12">
+      <span class="inline-block px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold mb-4">
+        <i class="fas fa-shield-halal mr-2"></i> Program Pendampingan
+      </span>
+      <h1 class="text-3xl md:text-4xl font-extrabold text-stone-800 mb-4">Alur Pengurusan Sertifikasi Halal UMKM</h1>
+      <p class="text-stone-600 max-w-2xl mx-auto">JelajahRasa membantu UMKM mitra dalam mempersiapkan dokumen, verifikasi bahan, hingga pendaftaran ke BPJPH menuju Wajib Halal Oktober 2026.</p>
+    </div>
+
+    <!-- Alur Sertifikasi (Timeline) -->
+    <div class="bg-white rounded-3xl shadow-xl border border-amber-100 p-8 md:p-12 relative overflow-hidden">
+      <!-- Garis Timeline (hanya untuk desktop) -->
+      <div class="hidden md:block absolute top-12 bottom-12 left-1/2 w-0.5 bg-amber-200 -translate-x-1/2 z-0"></div>
+
+      <div class="space-y-8 relative z-10">
+        
+        <!-- Step 1 -->
+        <div class="flex flex-col md:flex-row items-center justify-between group">
+          <div class="w-full md:w-[calc(50%-2rem)] mb-4 md:mb-0 md:text-right pr-0 md:pr-8">
+            <div class="bg-amber-50 p-5 rounded-xl border border-amber-200 shadow-sm">
+              <h3 class="font-bold text-stone-800 text-lg">1. Asesmen Mandiri & Verifikasi Bahan</h3>
+              <p class="text-sm text-stone-600 mt-2">UMKM mengunggah daftar bahan baku dan pemasok ke platform. Tim JelajahRasa membantu mengecek status kehalalan bahan (termasuk bahan syubhat).</p>
+            </div>
+          </div>
+          <div class="w-10 h-10 rounded-full border-4 border-white bg-amber-500 text-white font-bold flex items-center justify-center shadow-md absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 z-20">1</div>
+          <div class="w-full md:w-[calc(50%-2rem)] pl-0 md:pl-8"></div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flex flex-col md:flex-row items-center justify-between group">
+          <div class="w-full md:w-[calc(50%-2rem)] pr-0 md:pr-8"></div>
+          <div class="w-10 h-10 rounded-full border-4 border-white bg-amber-500 text-white font-bold flex items-center justify-center shadow-md absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 z-20">2</div>
+          <div class="w-full md:w-[calc(50%-2rem)] mb-4 md:mb-0 pl-0 md:pl-8">
+            <div class="bg-amber-50 p-5 rounded-xl border border-amber-200 shadow-sm">
+              <h3 class="font-bold text-stone-800 text-lg">2. Penyusunan Dokumen (SIHALAL)</h3>
+              <p class="text-sm text-stone-600 mt-2">Pendampingan pembuatan akun SIHALAL, pengisian formulir, dan penyusunan Manual Sistem Jaminan Produk Halal (SJPH).</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flex flex-col md:flex-row items-center justify-between group">
+          <div class="w-full md:w-[calc(50%-2rem)] mb-4 md:mb-0 md:text-right pr-0 md:pr-8">
+            <div class="bg-amber-50 p-5 rounded-xl border border-amber-200 shadow-sm">
+              <h3 class="font-bold text-stone-800 text-lg">3. Audit & Verifikasi Lembaga</h3>
+              <p class="text-sm text-stone-600 mt-2">Pendampingan saat proses audit lapangan oleh Lembaga Pemeriksa Halal (LPH) dan verifikasi oleh Majelis Ulama Indonesia (MUI).</p>
+            </div>
+          </div>
+          <div class="w-10 h-10 rounded-full border-4 border-white bg-amber-500 text-white font-bold flex items-center justify-center shadow-md absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 z-20">3</div>
+          <div class="w-full md:w-[calc(50%-2rem)] pl-0 md:pl-8"></div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flex flex-col md:flex-row items-center justify-between group">
+          <div class="w-full md:w-[calc(50%-2rem)] pr-0 md:pr-8"></div>
+          <div class="w-10 h-10 rounded-full border-4 border-white bg-green-500 text-white font-bold flex items-center justify-center shadow-md absolute left-1/2 -translate-x-1/2 md:relative md:left-auto md:translate-x-0 z-20">
+            <i class="fas fa-check"></i>
+          </div>
+          <div class="w-full md:w-[calc(50%-2rem)] mb-4 md:mb-0 pl-0 md:pl-8">
+            <div class="bg-green-50 p-5 rounded-xl border border-green-200 shadow-sm">
+              <h3 class="font-bold text-green-800 text-lg">4. Sertifikat Halal Terbit</h3>
+              <p class="text-sm text-green-700 mt-2">Sertifikat halal BPJPH diterbitkan. UMKM mendapatkan Badge "Halal Certified" di platform JelajahRasa dan siap menyambut Wajib Halal 2026.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Call to Action -->
+      <div class="mt-12 text-center border-t pt-8 border-stone-200 relative z-10">
+        <h3 class="font-bold text-stone-800 mb-2">Apakah Anda Pelaku UMKM dan Ingin Dibantu?</h3>
+        <p class="text-stone-500 text-sm mb-6">Daftarkan usaha Anda sekarang untuk mendapatkan pendampingan gratis menuju sertifikasi halal.</p>
+        <a href="https://wa.me/6281234567890?text=Halo%20JelajahRasa,%20saya%20UMKM%20ingin%20mengurus%20sertifikasi%20halal" target="_blank" class="inline-flex items-center bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-xl transition shadow-lg">
+          <i class="fab fa-whatsapp text-xl mr-2"></i> Hubungi Tim Pendampingan
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-stone-800 text-stone-300 py-8 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm">
+      <div class="flex items-center justify-center gap-2 mb-3">
+        <i class="fas fa-utensils text-amber-400"></i>
+        <span class="text-white font-semibold">JelajahRasa</span>
+      </div>
+      <p>© 2026 JelajahRasa - Eksplorasi Kuliner Halal Nusantara.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
