@@ -58,79 +58,129 @@
     }
   ];
 
-  // ============================================================
-  // BAGIAN 2: NUSAQUIZ - GAMIFIKASI EDUKASI KULINER
+   // ============================================================
+  // BAGIAN 2: NUSAQUIZ - GAMIFIKASI LITERASI HALAL
   // ============================================================
 
   const quizQuestions = [
     {
-      question: "Dari daerah manakah rendang berasal?",
-      options: ["Sumatera Utara", "Sumatera Barat", "Riau", "Jambi"],
+      question: "Apa yang dimaksud dengan sertifikasi halal pada produk UMKM?",
+      options: [
+        "Sertifikat izin usaha dari pemerintah daerah",
+        "Jaminan bahwa produk bebas dari bahan haram dan diproses sesuai syariat Islam",
+        "Label yang menunjukkan produk tersebut mahal",
+        "Tanda bahwa produk tersebut diekspor ke luar negeri"
+      ],
       correct: 1,
-      explanation: "Rendang adalah masakan khas Minangkabau yang berasal dari Sumatera Barat.",
+      explanation: "Sertifikasi halal adalah jaminan tertulis bahwa produk bebas dari bahan haram dan prosesnya sesuai syariat Islam.",
       points: 10
     },
     {
-      question: "Apa bahan utama pembuatan gudeg?",
-      options: ["Nangka muda", "Pepaya muda", "Kelapa", "Singkong"],
-      correct: 0,
-      explanation: "Gudeg terbuat dari nangka muda yang dimasak dengan santan dan gula aren.",
+      question: "Bahan atau zat apa yang termasuk kategori haram dalam makanan?",
+      options: [
+        "Daging sapi dan sayuran segar",
+        "Babi, alkohol, dan darah",
+        "Beras, gandum, dan jagung",
+        "Ikan, telur, dan susu"
+      ],
+      correct: 1,
+      explanation: "Babi, alkohol, dan darah adalah bahan yang diharamkan dalam Islam dan dilarang ada dalam produk halal.",
       points: 10
     },
     {
-      question: "Sate Madura terkenal dengan bumbu apa?",
-      options: ["Bumbu kacang", "Bumbu kecap", "Bumbu kuning", "Bumbu merah"],
-      correct: 0,
-      explanation: "Sate Madura disajikan dengan bumbu kacang yang kental dan manis.",
+      question: "Lembaga resmi di Indonesia yang mengeluarkan sertifikat halal adalah...",
+      options: [
+        "BPOM dan Kemenkes",
+        "BPJPH (Badan Penyelenggara Jaminan Produk Halal)",
+        "Kementerian Perdagangan",
+        "Lembaga Swadaya Masyarakat (LSM)"
+      ],
+      correct: 1,
+      explanation: "BPJPH adalah badan resmi yang dibentuk pemerintah untuk menyelenggarakan jaminan produk halal di Indonesia.",
       points: 10
     },
     {
-      question: "Pempek berasal dari kota mana?",
-      options: ["Palembang", "Padang", "Medan", "Bengkulu"],
-      correct: 0,
-      explanation: "Pempek adalah makanan khas Palembang, Sumatera Selatan.",
+      question: "Apa itu 'Halal Traceability' (Ketertelusuran Halal)?",
+      options: [
+        "Proses menghitung biaya produksi makanan",
+        "Kemampuan melacak asal-usul bahan baku hingga produk akhir untuk memastikan kehalalannya",
+        "Aplikasi untuk memesan makanan secara online",
+        "Cara memasak makanan dengan suhu tinggi"
+      ],
+      correct: 1,
+      explanation: "Traceability halal memastikan seluruh rantai pasok, dari bahan baku hingga produk jadi, bebas dari kontaminasi bahan haram.",
       points: 10
     },
     {
-      question: "Apa warna khas dari rawon?",
-      options: ["Merah", "Kuning", "Hitam", "Putih"],
+      question: "Kapan kewajiban sertifikasi halal bagi pelaku UMKM makanan dan minuman di Indonesia mulai berlaku?",
+      options: [
+        "1 Januari 2023",
+        "17 Agustus 2024",
+        "17 Oktober 2026",
+        "1 Januari 2030"
+      ],
       correct: 2,
-      explanation: "Rawon memiliki kuah hitam yang berasal dari kluwek.",
+      explanation: "Berdasarkan PP No. 42 Tahun 2024, Wajib Halal untuk makanan dan minuman akan diberlakukan pada Oktober 2026.",
       points: 10
     },
     {
-      question: "Makanan khas Bali yang dimasak dengan bumbu base genep adalah?",
-      options: ["Ayam betutu", "Babi guling", "Lawar", "Sate lilit"],
-      correct: 0,
-      explanation: "Ayam betutu dimasak dengan bumbu base genep yang kaya rempah.",
+      question: "Mengapa platform digital seperti JelajahRasa penting untuk UMKM Halal?",
+      options: [
+        "Agar UMKM bisa menjual lebih mahal",
+        "Untuk membantu UMKM mempublikasikan status sertifikasi halal dan transparansi bahan",
+        "Untuk menggantikan proses masak secara otomatis",
+        "Supaya UMKM tidak perlu mengurus izin usaha"
+      ],
+      correct: 1,
+      explanation: "Platform digital membantu UMKM menampilkan badge halal, ketertelusuran bahan, dan mengedukasi konsumen secara transparan.",
       points: 10
     },
     {
-      question: "Coto Makassar adalah makanan khas dari provinsi?",
-      options: ["Sulawesi Selatan", "Sulawesi Utara", "Sulawesi Tengah", "Sulawesi Tenggara"],
-      correct: 0,
-      explanation: "Coto Makassar berasal dari Sulawesi Selatan.",
+      question: "Dalam proses sertifikasi halal, apa yang dimaksud dengan 'bahan syubhat'?",
+      options: [
+        "Bahan yang harganya sangat murah",
+        "Bahan yang meragukan status kehalalannya dan perlu diverifikasi lebih lanjut",
+        "Bahan yang tidak memiliki label gizi",
+        "Bahan yang diproduksi di luar negeri"
+      ],
+      correct: 1,
+      explanation: "Syubhat artinya meragukan. Bahan seperti ini harus ditelusuri asalnya agar tidak masuk ke dalam produk halal.",
       points: 10
     },
     {
-      question: "Papeda terbuat dari bahan dasar?",
-      options: ["Sagu", "Jagung", "Beras", "Singkong"],
-      correct: 0,
-      explanation: "Papeda adalah makanan khas Papua dan Maluku yang terbuat dari sagu.",
+      question: "Apa manfaat fitur 'AI Asisten Halal' pada JelajahRasa bagi konsumen?",
+      options: [
+        "Menghitung total harga belanja",
+        "Mengecek apakah makanan tertentu mengandung bahan yang diharamkan",
+        "Mengirim pesan otomatis ke kurir",
+        "Memberikan diskon otomatis pada produk"
+      ],
+      correct: 1,
+      explanation: "AI Asisten Halal membantu konsumen mendapatkan informasi instan terkait bahan-bahan produk dan status kehalalannya.",
       points: 10
     },
     {
-      question: "Apa nama bubur khas Manado yang berisi campuran sayuran?",
-      options: ["Tinutuan", "Bubur ayam", "Bubur sumsum", "Bubur kacang ijo"],
+      question: "Selain mendapatkan poin, apa tujuan gamifikasi kuis di JelajahRasa?",
+      options: [
+        "Meningkatkan literasi halal generasi muda terhadap produk UMKM",
+        "Menghabiskan kuota internet pengguna",
+        "Menjual produk secara sembunyi-sembunyi",
+        "Menguji kecepatan mengetik pengguna"
+      ],
       correct: 0,
-      explanation: "Tinutuan atau bubur manado berisi bayam, kangkung, jagung, dan labu kuning.",
+      explanation: "Gamifikasi digunakan untuk mengedukasi konsumen muda tentang pentingnya kehalalan produk dengan cara yang menyenangkan.",
       points: 10
     },
     {
-      question: "Soto Banjar berasal dari provinsi?",
-      options: ["Kalimantan Selatan", "Kalimantan Timur", "Kalimantan Barat", "Kalimantan Tengah"],
-      correct: 0,
-      explanation: "Soto Banjar adalah soto khas Banjarmasin, Kalimantan Selatan.",
+      question: "Jika sebuah UMKM belum memiliki sertifikat halal, apa langkah awal yang bisa dibantu oleh platform digital?",
+      options: [
+        "Langsung menulis kata 'Halal' pada kemasan",
+        "Menyembunyikan bahan baku dari konsumen",
+        "Memberikan panduan kesiapan sertifikasi dan asesmen mandiri bahan baku",
+        "Menghapus UMKM tersebut dari platform"
+      ],
+      correct: 2,
+      explanation: "Platform membantu UMKM mempersiapkan proses sertifikasi dengan memberikan panduan dan checklist bahan halal (asesmen mandiri).",
       points: 10
     }
   ];
@@ -446,177 +496,88 @@
   // ============================================================
 
 
-  // ============================================================
-  // BAGIAN 4.1: AI SEJARAH - KNOWLEDGE BASE
+   // ============================================================
+  // BAGIAN 4.1: AI ASISTEN HALAL - KNOWLEDGE BASE
   // ============================================================
 
   const aiSejarahKnowledge = [
-    // --- TOPIK 1: SEJARAH RENDANG ---
+    // --- TOPIK 1: SEJARAH & KEHALALAN RENDANG ---
     {
-      keywords: ['rendang', 'padang', 'minang', 'sejarah rendang'],
-      jawaban: `🍛 **Sejarah Rendang**\n\n` +
-               `Rendang adalah masakan khas Minangkabau yang berasal dari Sumatera Barat.\n\n` +
-               `📜 **Filosofi**: Rendang melambangkan musyawarah dan kebersamaan:\n` +
-               `• Daging sapi (pemimpin) - simbol kepala adat\n` +
-               `• Santan (ulama) - simbol pengetahuan agama\n` +
-               `• Cabai (pemuda) - simbol semangat juang\n\n` +
-               `⏳ **Proses memasak 7 jam** mencerminkan kesabaran dan ketelitian.\n\n` +
-               `🌏 UNESCO mengakui rendang sebagai warisan budaya tak benda Indonesia.`
+      keywords: ['rendang', 'padang', 'minang', 'sejarah rendang', 'halal rendang', 'rendang halal'],
+      jawaban: `🍛 **Rendang: Sejarah & Kehalalan**\n\n` +
+               `Rendang adalah masakan khas Minangkabau dari Sumatera Barat.\n\n` +
+               `📜 **Sejarah**: Melambangkan musyawarah (daging = pemimpin, santan = ulama, cabe = pemuda).\n\n` +
+               `✅ **Status Halal**: Rendang umumnya halal karena berbahan dasar daging sapi, santan, dan rempah-rempah alami. \n` +
+               `Namun, konsumen wajib memastikan daging berasal dari RPH bersertifikat halal dan tidak ada campuran bahan haram.`
     },
-    // --- TOPIK 2: SEJARAH GUDEG ---
+    // --- TOPIK 2: SEJARAH & KEHALALAN GUDEG ---
     {
-      keywords: ['gudeg', 'jogja', 'yogyakarta', 'sejarah gudeg'],
-      jawaban: `🥘 **Sejarah Gudeg**\n\n` +
-               `Gudeg adalah makanan khas Yogyakarta yang terbuat dari nangka muda.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari masa Kerajaan Mataram Islam\n` +
-               `• Awalnya disajikan untuk keluarga kerajaan\n` +
-               `• Sekarang jadi ikon kuliner Jogja\n\n` +
-               `🍯 **Keunikan**: Proses memasak selama berjam-jam dengan gula aren\n` +
-               `menghasilkan rasa manis legit yang khas.\n\n` +
-               `🥢 **Penyajian**: Disajikan dengan nasi, ayam, telur, dan sambal krecek.`
+      keywords: ['gudeg', 'jogja', 'yogyakarta', 'sejarah gudeg', 'halal gudeg'],
+      jawaban: `🥘 **Gudeg: Sejarah & Kehalalan**\n\n` +
+               `Gudeg adalah makanan khas Yogyakarta dari nangka muda.\n\n` +
+               `📜 **Sejarah**: Berasal dari masa Kerajaan Mataram Islam, awalnya untuk keluarga kerajaan.\n\n` +
+               `✅ **Status Halal**: Gudeg pada dasarnya halal (nangka, santan, gula aren). \n` +
+               `Tapi, waspadai jika disajikan dengan lauk pendamping seperti *krecek* (kulit sapi) — pastikan kulit sapi tersebut bersumber dari hewan halal.`
     },
-    // --- TOPIK 3: SEJARAH SATE MADURA ---
+    // --- TOPIK 3: SEJARAH & KEHALALAN SATE ---
     {
-      keywords: ['sate', 'madura', 'sejarah sate'],
-      jawaban: `🍢 **Sejarah Sate Madura**\n\n` +
-               `Sate Madura adalah makanan khas Jawa Timur.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari Pulau Madura\n` +
-               `• Awalnya adalah makanan para nelayan dan petani\n` +
-               `• Sekarang jadi kuliner favorit di seluruh Indonesia\n\n` +
-               `🥜 **Ciri khas**: Bumbu kacang yang kental dan manis\n\n` +
-               `🍢 **Filosofi**: Menggambarkan keragaman bumbu sebagai\n` +
-               `simbol akulturasi budaya Madura dengan pengaruh luar.`
+      keywords: ['sate', 'madura', 'sejarah sate', 'halal sate', 'sate halal'],
+      jawaban: `🍢 **Sate Madura: Sejarah & Kehalalan**\n\n` +
+               `Sate Madura khas Jawa Timur dengan bumbu kacang kental.\n\n` +
+               `📜 **Sejarah**: Awalnya makanan nelayan dan petani Madura.\n\n` +
+               `✅ **Status Halal**: Daging kambing/ayam adalah halal. \n` +
+               `Kuncinya ada pada proses penyembelihan hewan (harus sesuai syariat Islam) dan bumbu yang tidak mengandung alkohol atau bahan haram lainnya.`
     },
-    // --- TOPIK 4: SEJARAH PEMPEK ---
+    // --- TOPIK 4: SEJARAH & KEHALALAN PEMPEK ---
     {
-      keywords: ['pempek', 'palembang', 'sejarah pempek'],
-      jawaban: `🍲 **Sejarah Pempek**\n\n` +
-               `Pempek adalah makanan khas Palembang, Sumatera Selatan.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari masa Kerajaan Sriwijaya (abad ke-7)\n` +
-               `• Nama "pempek" berasal dari kata "apek" (kakek)\n` +
-               `• Konon diciptakan oleh seorang kakek tua di Palembang\n\n` +
-               `🐟 **Bahan utama**: Ikan tenggiri atau belida yang digiling halus.\n\n` +
-               `🍜 **Kuah cuko**: Kuah asam pedas manis yang jadi ciri khas pempek.`
+      keywords: ['pempek', 'palembang', 'sejarah pempek', 'halal pempek'],
+      jawaban: `🍲 **Pempek: Sejarah & Kehalalan**\n\n` +
+               `Pempek khas Palembang berbahan dasar ikan tenggiri.\n\n` +
+               `📜 **Sejarah**: Berasal dari masa Kerajaan Sriwijaya, nama "pempek" dari kata "apek" (kakek).\n\n` +
+               `✅ **Status Halal**: Ikan dan tepung sagu adalah bahan halal. \n` +
+               `Pastikan kuah cuko tidak mengandung zat aditif haram dan proses produksinya tidak terkontaminasi.`
     },
-    // --- TOPIK 5: SEJARAH RAWON ---
+    // --- TOPIK 5: PELESTARIAN BUDAYA & HALAL ---
     {
-      keywords: ['rawon', 'sejarah rawon', 'rawon hitam'],
-      jawaban: `🍖 **Sejarah Rawon**\n\n` +
-               `Rawon adalah sup daging khas Jawa Timur.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari era Kerajaan Majapahit\n` +
-               `• Awalnya adalah makanan para prajurit\n` +
-               `• Warna hitam berasal dari kluwek (kepayang)\n\n` +
-               `🖤 **Keunikan**: Kuah hitam pekat dengan aroma khas\n\n` +
-               `🥩 **Penyajian**: Disajikan dengan nasi, tauge, dan sambal.`
-    },
-    // --- TOPIK 6: SEJARAH AYAM BETUTU ---
-    {
-      keywords: ['ayam betutu', 'bali', 'sejarah betutu'],
-      jawaban: `🐔 **Sejarah Ayam Betutu**\n\n` +
-               `Ayam betutu adalah makanan khas Bali.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari tradisi kuliner masyarakat Bali\n` +
-               `• "Betutu" berarti "dipanggang" dalam bahasa Bali\n` +
-               `• Awalnya disajikan untuk upacara keagamaan\n\n` +
-               `🌿 **Bumbu base genep**: Campuran 10+ rempah khas Bali\n\n` +
-               `🔥 **Proses**: Dimasak dengan api lambat selama 5-6 jam.`
-    },
-    // --- TOPIK 7: SEJARAH COTO MAKASSAR ---
-    {
-      keywords: ['coto', 'makassar', 'sejarah coto'],
-      jawaban: `🍲 **Sejarah Coto Makassar**\n\n` +
-               `Coto Makassar adalah sup khas Sulawesi Selatan.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari budaya kuliner Bugis-Makassar\n` +
-               `• Awalnya adalah makanan para bangsawan\n` +
-               `• Sekarang jadi ikon kuliner Makassar\n\n` +
-               `🥩 **Bahan**: Daging sapi dan jeroan dengan kuah kacang\n\n` +
-               `🍚 **Penyajian**: Disajikan dengan ketupat dan sambal.`
-    },
-    // --- TOPIK 8: SEJARAH PAPEDA ---
-    {
-      keywords: ['papeda', 'papua', 'maluku', 'sejarah papeda'],
-      jawaban: `🍚 **Sejarah Papeda**\n\n` +
-               `Papeda adalah makanan khas Papua dan Maluku.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari tradisi kuliner masyarakat adat Papua\n` +
-               `• Bahan dasar sagu sudah digunakan sejak zaman prasejarah\n` +
-               `• Jadi makanan pokok masyarakat di wilayah timur Indonesia\n\n` +
-               `🌴 **Bahan**: Sagu yang diolah menjadi bubur kental\n\n` +
-               `🐟 **Penyajian**: Disajikan dengan ikan kuah kuning.`
-    },
-    // --- TOPIK 9: SEJARAH TINUTUAN ---
-    {
-      keywords: ['tinutuan', 'manado', 'bubur manado', 'sejarah tinutuan'],
-      jawaban: `🥣 **Sejarah Tinutuan (Bubur Manado)**\n\n` +
-               `Tinutuan adalah bubur khas Manado, Sulawesi Utara.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari tradisi masyarakat Minahasa\n` +
-               `• Awalnya adalah makanan sederhana para petani\n` +
-               `• Sekarang jadi ikon kuliner Manado\n\n` +
-               `🌿 **Isian**: Bayam, kangkung, jagung, labu kuning, dan singkong.\n\n` +
-               `🥄 **Keunikan**: Kaya serat dan sayuran, cocok untuk sarapan sehat.`
-    },
-    // --- TOPIK 10: SEJARAH SOTO BANJAR ---
-    {
-      keywords: ['soto banjar', 'banjarmasin', 'kalimantan selatan', 'sejarah soto banjar'],
-      jawaban: `🍜 **Sejarah Soto Banjar**\n\n` +
-               `Soto Banjar adalah soto khas Banjarmasin, Kalimantan Selatan.\n\n` +
-               `📜 **Sejarah**:\n` +
-               `• Berasal dari budaya kuliner masyarakat Banjar\n` +
-               `• Awalnya disajikan untuk acara adat dan hajatan\n` +
-               `• Sekarang jadi kuliner favorit di Kalimantan\n\n` +
-               `🐔 **Bahan**: Daging ayam dengan kuah bening gurih\n\n` +
-               `🍚 **Penyajian**: Disajikan dengan ketupat dan sambal.`
-    },
-    // --- TOPIK 11: PELESTARIAN BUDAYA ---
-    {
-      keywords: ['budaya', 'warisan', 'tradisi', 'nilai budaya', 'filosofi', 'kearifan lokal'],
-      jawaban: `🌏 **Warisan Budaya Kuliner Nusantara**\n\n` +
+      keywords: ['budaya', 'warisan', 'tradisi', 'nilai budaya', 'filosofi', 'kearifan lokal', 'halal budaya'],
+      jawaban: `🌏 **Warisan Budaya Kuliner Halal Nusantara**\n\n` +
                `Setiap makanan di Indonesia menyimpan filosofi dan nilai budaya:\n\n` +
-               `🍛 **Rendang** - Melambangkan musyawarah (daging = pemimpin, santan = ulama, cabe = pemuda)\n` +
-               `🥘 **Gudeg** - Simbol kesederhanaan dan kehangatan masyarakat Jawa\n` +
-               `🍢 **Sate Madura** - Mencerminkan keragaman bumbu (akulturasi budaya)\n\n` +
-               `💡 AI Sejarah CitaRasa hadir untuk menjaga warisan ini tetap hidup di era digital!`
+               `🍛 **Rendang** - Melambangkan musyawarah (daging = pemimpin, santan = ulama).\n` +
+               `🥘 **Gudeg** - Simbol kesederhanaan dan kehangatan masyarakat Jawa.\n\n` +
+               `✅ **Mengapa Halal Penting?** \n` +
+               `Sertifikasi halal bukan hanya soal agama, tapi juga jaminan kebersihan (thayyib) dan kualitas produk. \n` +
+               `AI Asisten Halal hadir untuk menjaga warisan ini tetap aman dan terpercaya di era digital!`
     },
-    // --- TOPIK 12: ANCAMAN KEPUNAHAN ---
+    // --- TOPIK 6: CARA CEK KEHALALAN ---
     {
-      keywords: ['punah', 'terancam', 'hilang', 'generasi muda', 'milenial', 'zaman now'],
-      jawaban: `📉 **Ancaman Kepunahan Kuliner Daerah**\n\n` +
-               `FAO (2023) mencatat lebih dari 70% makanan khas daerah di Asia Tenggara terancam punah.\n\n` +
-               `Penyebab utama:\n` +
-               `• Pergeseran preferensi ke makanan instan & internasional\n` +
-               `• Kurangnya akses informasi sejarah dan filosofi kuliner\n` +
-               `• Minimnya promosi dan digitalisasi UMKM\n\n` +
-               `🛡️ AI Sejarah CitaRasa hadir sebagai gerakan pelestarian:\n` +
-               `✅ Edukasi sejarah & filosofi makanan\n` +
-               `✅ NusaQuiz → Gamifikasi literasi kuliner\n` +
-               `✅ Pemberdayaan UMKM → Ekonomi berkelanjutan`
+      keywords: ['cek halal', 'sertifikat halal', 'badge halal', 'bagaimana cek halal', 'status halal'],
+      jawaban: `🛡️ **Cara Cek Kehalalan Produk di JelajahRasa**\n\n` +
+               `Kami memudahkan kamu untuk memastikan produk yang dibeli 100% halal:\n\n` +
+               `1️⃣ **Lihat Badge Halal** - Pada kartu produk, cari label hijau "Halal Certified" (sudah sertifikasi) atau kuning "Proses Sertifikasi".\n` +
+               `2️⃣ **Cek Traceability** - Klik profil UMKM untuk melihat asal-usul bahan baku (dari pemasok mana).\n` +
+               `3️⃣ **Tanya AI** - Ketik nama makanan di kolom chat ini, saya akan bantu cek komposisinya.\n\n` +
+               `💡 *Ingat: Selalu utamakan produk dengan sertifikasi resmi BPJPH!*`
     },
-    // --- TOPIK 13: INDONESIA EMAS 2045 ---
+    // --- TOPIK 7: WAJIB HALAL 2026 ---
     {
-      keywords: ['indonesia emas', '2045', 'visi', 'masa depan'],
-      jawaban: `🇮🇩 **AI Sejarah untuk Indonesia Emas 2045**\n\n` +
-               `Kuliner bukan sekadar makanan, melainkan identitas bangsa.\n\n` +
-               `Peran AI Sejarah CitaRasa dalam visi Indonesia Emas 2045:\n` +
-               `• Mencetak generasi muda yang cinta sejarah budaya lokal\n` +
-               `• Mengangkat UMKM kuliner ke panggung global\n` +
-               `• Menjaga keberlanjutan warisan kuliner Nusantara\n\n` +
-               `💪 Dengan teknologi dan kearifan lokal, kita wujudkan Indonesia Emas!`
+      keywords: ['wajib halal', '2026', 'pp 42', 'regulasi', 'hukum halal'],
+      jawaban: `📜 **Wajib Halal Oktober 2026**\n\n` +
+               `Sesuai **PP No. 42 Tahun 2024**, seluruh produk makanan dan minuman di Indonesia wajib memiliki sertifikasi halal mulai Oktober 2026.\n\n` +
+               `Mengapa ini penting untuk UMKM?\n` +
+               `• **Kepercayaan Konsumen**: Konsumen muslim akan lebih yakin membeli.\n` +
+               `• **Daya Saing**: Produk bersertifikat halal lebih mudah menembus pasar luas.\n` +
+               `• **Kepatuhan Hukum**: Menghindari sanksi di masa depan.\n\n` +
+               `JelajahRasa hadir untuk membantu UMKM bersiap dari sekarang!`
     },
-    // --- TOPIK 14: CARA BELI (PEMBERDAYAAN UMKM) ---
+    // --- TOPIK 8: CARA BELI ---
     {
       keywords: ['beli', 'cara beli', 'order', 'pesan', 'transaksi', 'checkout'],
-      jawaban: `🛒 **Cara Membeli Kuliner Daerah di CitaRasa:**\n\n` +
-               `1️⃣ **Pilih Produk** - Jelajahi halaman Kuliner Daerah\n` +
-               `2️⃣ **Klik "Tambah ke Keranjang"** - Produk masuk ke keranjang\n` +
-               `3️⃣ **Isi Data Pengiriman** - Alamat lengkap dan pilih kurir\n` +
-               `4️⃣ **Pilih Pembayaran** - Transfer Bank, E-Wallet, atau COD\n` +
-               `5️⃣ **Konfirmasi** - Pesanan diproses, makanan sampai ke rumah!\n\n` +
+      jawaban: `🛒 **Cara Membeli Kuliner Halal di JelajahRasa:**\n\n` +
+               `1️⃣ **Pilih Produk** - Cari produk dengan label hijau "Halal Certified".\n` +
+               `2️⃣ **Cek Traceability** - Pastikan bahan baku terverifikasi halal.\n` +
+               `3️⃣ **Isi Data Pengiriman** - Alamat lengkap dan pilih kurir.\n` +
+               `4️⃣ **Pilih Pembayaran** - Transfer Bank, E-Wallet, atau COD.\n` +
+               `5️⃣ **Konfirmasi** - Pesanan diproses!\n\n` +
                `💡 Setiap pembelian juga mengumpulkan poin reward!`
     }
   ];
