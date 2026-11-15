@@ -1,20 +1,20 @@
 // ============================================================
 // ============================================================
-// FILE: CITARASA - MELESTARIKAN KULINER DAERAH
-// VERSI: 4.0 (Dengan Penamaan AI Sejarah)
+// FILE: JELAJAH RASA - EKSPLORASI KULINER HALAL
+// VERSI: 5.0 (Integrasi Halal & Perbaikan Bug Kuis)
 // ============================================================
 // ============================================================
 //
 //  📌  FITUR UTAMA:
 //  ------------------------------------------------------------
-//  1.  AI SEJARAH - Sistem Rule-Based untuk edukasi budaya kuliner
-//  2.  NUSAQUIZ - Gamifikasi edukasi kuliner interaktif
+//  1.  AI ASISTEN HALAL - Sistem Rule-Based untuk edukasi kehalalan
+//  2.  NUSAQUIZ - Gamifikasi literasi halal interaktif
 //  3.  EKSPLORASI - Rekomendasi kuliner berbasis lokasi
 //  4.  PEMBELIAN - Integrasi pemesanan langsung ke UMKM
 //
 //  📌  SESUAI DENGAN SUBTEMA:
 //  ------------------------------------------------------------
-//  "Pelestarian Budaya melalui Inovasi Teknologi"
+//  "Digitalisasi Operasi, Administrasi, dan Jaminan Proses Halal"
 //  - SDG 8: Pekerjaan Layak & Pertumbuhan Ekonomi
 //  - SDG 12: Konsumsi & Produksi Bertanggung Jawab
 //  - Asta Cita: Penguatan Ekonomi Kerakyatan & Pelestarian Budaya
@@ -33,6 +33,7 @@
       daerah: "Sumatera Barat",
       umkm: "Mak Yun",
       harga: 45000,
+      statusHalal: "Halal Certified",
       caraBeli: "Rendang Mak Yun bisa dibeli langsung di halaman Kuliner Daerah. Klik produk, tambah ke keranjang, lalu checkout."
     },
     {
@@ -40,6 +41,7 @@
       daerah: "Yogyakarta",
       umkm: "Bu Gandes",
       harga: 30000,
+      statusHalal: "Halal Certified",
       caraBeli: "Gudeg Bu Gandes tersedia di marketplace. Cari di kategori 'Kuliner Jawa', tambahkan ke keranjang, dan selesaikan pembayaran."
     },
     {
@@ -47,6 +49,7 @@
       daerah: "Jawa Timur",
       umkm: "Pak Samin",
       harga: 25000,
+      statusHalal: "Proses Sertifikasi",
       caraBeli: "Sate Madura Pak Samin bisa dipesan via marketplace. Pastikan alamat pengiriman terisi dengan benar."
     },
     {
@@ -54,11 +57,12 @@
       daerah: "Palembang",
       umkm: "Kapal Saga",
       harga: 35000,
+      statusHalal: "Halal Certified",
       caraBeli: "Pempek Kapal Saga tersedia dengan kuah cuko asli. Beli di halaman produk dan pilih metode pengiriman."
     }
   ];
 
-   // ============================================================
+  // ============================================================
   // BAGIAN 2: NUSAQUIZ - GAMIFIKASI LITERASI HALAL
   // ============================================================
 
@@ -287,13 +291,14 @@
       quizElements.currentQ.textContent = index + 1;
     }
 
+    // PERBAIKAN: Pastikan opsi selalu di-render ulang dan bisa diklik lagi
     if (quizElements.options) {
       let optionsHtml = '';
       q.options.forEach((opt, i) => {
-        const isSelected = currentQuizState.answers[index] === i;
         const isAnswered = currentQuizState.answers[index] !== undefined;
+        const isSelected = currentQuizState.answers[index] === i;
         const isCorrect = isAnswered && i === q.correct;
-        const isWrong = isAnswered && i === currentQuizState.answers[index] && i !== q.correct;
+        const isWrong = isAnswered && isSelected && i !== q.correct;
         
         let optionClass = 'quiz-option';
         if (isAnswered) optionClass += ' disabled';
@@ -309,13 +314,15 @@
       });
       quizElements.options.innerHTML = optionsHtml;
 
-      if (!currentQuizState.answers[index]) {
-        document.querySelectorAll('.quiz-option:not(.disabled)').forEach(btn => {
+      // PERBAIKAN: Hanya pasang event listener jika soal BELUM dijawab
+      if (currentQuizState.answers[index] === undefined) {
+        document.querySelectorAll('.quiz-option').forEach(btn => {
           btn.addEventListener('click', (e) => handleOptionClick(e, index));
         });
       }
     }
 
+    // PERBAIKAN: Bersihkan feedback dan atur ulang status tombol Next
     if (quizElements.feedback) {
       quizElements.feedback.innerHTML = '';
     }
@@ -324,7 +331,15 @@
       quizElements.nextBtn.disabled = currentQuizState.answers[index] === undefined;
     }
 
-    startTimer();
+    // Mulai timer hanya jika soal belum dijawab
+    if (currentQuizState.answers[index] === undefined) {
+      startTimer();
+    } else {
+      // Jika soal sudah dijawab, matikan timer dan tampilkan feedback yang sesuai
+      if (currentQuizState.timerInterval) clearInterval(currentQuizState.timerInterval);
+      const isCorrect = currentQuizState.answers[index] === q.correct;
+      showFeedback(isCorrect ? '✅ Benar!' : `❌ Salah. ${q.explanation}`, isCorrect ? 'success' : 'error');
+    }
   }
 
   function handleOptionClick(event, questionIndex) {
@@ -483,25 +498,10 @@
 
 
   // ============================================================
-  // ============================================================
-  // BAGIAN 4: AI SEJARAH (RULE-BASED SYSTEM)
-  // ============================================================
-  // ============================================================
-  //
-  //  📌  APA ITU AI SEJARAH?
-  //  ============================================================
-  //  AI Sejarah adalah sistem berbasis RULE-BASED yang berfungsi
-  //  untuk memberikan edukasi tentang sejarah, filosofi, dan
-  //  nilai budaya kuliner Nusantara.
-  // ============================================================
-
-
-   // ============================================================
-  // BAGIAN 4.1: AI ASISTEN HALAL - KNOWLEDGE BASE
+  // BAGIAN 4: AI ASISTEN HALAL (RULE-BASED SYSTEM)
   // ============================================================
 
   const aiSejarahKnowledge = [
-    // --- TOPIK 1: SEJARAH & KEHALALAN RENDANG ---
     {
       keywords: ['rendang', 'padang', 'minang', 'sejarah rendang', 'halal rendang', 'rendang halal'],
       jawaban: `🍛 **Rendang: Sejarah & Kehalalan**\n\n` +
@@ -510,7 +510,6 @@
                `✅ **Status Halal**: Rendang umumnya halal karena berbahan dasar daging sapi, santan, dan rempah-rempah alami. \n` +
                `Namun, konsumen wajib memastikan daging berasal dari RPH bersertifikat halal dan tidak ada campuran bahan haram.`
     },
-    // --- TOPIK 2: SEJARAH & KEHALALAN GUDEG ---
     {
       keywords: ['gudeg', 'jogja', 'yogyakarta', 'sejarah gudeg', 'halal gudeg'],
       jawaban: `🥘 **Gudeg: Sejarah & Kehalalan**\n\n` +
@@ -519,7 +518,6 @@
                `✅ **Status Halal**: Gudeg pada dasarnya halal (nangka, santan, gula aren). \n` +
                `Tapi, waspadai jika disajikan dengan lauk pendamping seperti *krecek* (kulit sapi) — pastikan kulit sapi tersebut bersumber dari hewan halal.`
     },
-    // --- TOPIK 3: SEJARAH & KEHALALAN SATE ---
     {
       keywords: ['sate', 'madura', 'sejarah sate', 'halal sate', 'sate halal'],
       jawaban: `🍢 **Sate Madura: Sejarah & Kehalalan**\n\n` +
@@ -528,7 +526,6 @@
                `✅ **Status Halal**: Daging kambing/ayam adalah halal. \n` +
                `Kuncinya ada pada proses penyembelihan hewan (harus sesuai syariat Islam) dan bumbu yang tidak mengandung alkohol atau bahan haram lainnya.`
     },
-    // --- TOPIK 4: SEJARAH & KEHALALAN PEMPEK ---
     {
       keywords: ['pempek', 'palembang', 'sejarah pempek', 'halal pempek'],
       jawaban: `🍲 **Pempek: Sejarah & Kehalalan**\n\n` +
@@ -537,7 +534,6 @@
                `✅ **Status Halal**: Ikan dan tepung sagu adalah bahan halal. \n` +
                `Pastikan kuah cuko tidak mengandung zat aditif haram dan proses produksinya tidak terkontaminasi.`
     },
-    // --- TOPIK 5: PELESTARIAN BUDAYA & HALAL ---
     {
       keywords: ['budaya', 'warisan', 'tradisi', 'nilai budaya', 'filosofi', 'kearifan lokal', 'halal budaya'],
       jawaban: `🌏 **Warisan Budaya Kuliner Halal Nusantara**\n\n` +
@@ -548,7 +544,6 @@
                `Sertifikasi halal bukan hanya soal agama, tapi juga jaminan kebersihan (thayyib) dan kualitas produk. \n` +
                `AI Asisten Halal hadir untuk menjaga warisan ini tetap aman dan terpercaya di era digital!`
     },
-    // --- TOPIK 6: CARA CEK KEHALALAN ---
     {
       keywords: ['cek halal', 'sertifikat halal', 'badge halal', 'bagaimana cek halal', 'status halal'],
       jawaban: `🛡️ **Cara Cek Kehalalan Produk di JelajahRasa**\n\n` +
@@ -558,7 +553,6 @@
                `3️⃣ **Tanya AI** - Ketik nama makanan di kolom chat ini, saya akan bantu cek komposisinya.\n\n` +
                `💡 *Ingat: Selalu utamakan produk dengan sertifikasi resmi BPJPH!*`
     },
-    // --- TOPIK 7: WAJIB HALAL 2026 ---
     {
       keywords: ['wajib halal', '2026', 'pp 42', 'regulasi', 'hukum halal'],
       jawaban: `📜 **Wajib Halal Oktober 2026**\n\n` +
@@ -569,7 +563,6 @@
                `• **Kepatuhan Hukum**: Menghindari sanksi di masa depan.\n\n` +
                `JelajahRasa hadir untuk membantu UMKM bersiap dari sekarang!`
     },
-    // --- TOPIK 8: CARA BELI ---
     {
       keywords: ['beli', 'cara beli', 'order', 'pesan', 'transaksi', 'checkout'],
       jawaban: `🛒 **Cara Membeli Kuliner Halal di JelajahRasa:**\n\n` +
@@ -582,11 +575,6 @@
     }
   ];
 
-
-  // ============================================================
-  // BAGIAN 4.2: AI SEJARAH - FUNGSI PENENTU OUTPUT
-  // ============================================================
-
   function cariJawabanAI(pertanyaan) {
     if (!pertanyaan || pertanyaan.trim() === '') {
       return 'Silakan tulis pertanyaan terlebih dahulu.';
@@ -594,13 +582,12 @@
 
     const lowerQ = pertanyaan.toLowerCase().trim();
     
-    // --- ATURAN KHUSUS #1: DETEKSI SAPAAN ---
     if (lowerQ.match(/^(halo|hai|hey|hi|pagi|siang|sore|malam)/)) {
-      return '🌾 Halo! Saya AI Sejarah CitaRasa. Ada yang bisa saya bantu tentang sejarah kuliner Nusantara?';
+      return '🌾 Halo! Saya AI Asisten Halal JelajahRasa. Ada yang bisa saya bantu terkait kehalalan dan sejarah kuliner Nusantara?';
     }
 
     if (lowerQ.match(/^(makasih|terima kasih|thanks)/)) {
-      return 'Sama-sama! Senang bisa membantu melestarikan sejarah kuliner Nusantara. Ada lagi yang ingin ditanyakan?';
+      return 'Sama-sama! Senang bisa membantu memastikan kehalalan kuliner Nusantara. Ada lagi yang ingin ditanyakan?';
     }
 
     let bestMatch = null;
@@ -637,23 +624,22 @@
         return `🍽️ **${makanan.nama}**\n` +
                `Daerah: ${makanan.daerah}\n` +
                `UMKM: ${makanan.umkm}\n` +
-               `Harga: Rp${makanan.harga.toLocaleString()}\n\n` +
+               `Harga: Rp${makanan.harga.toLocaleString()}\n` +
+               `Status Halal: ${makanan.statusHalal}\n\n` +
                `🛒 **Cara beli**: ${makanan.caraBeli}`;
       }
     }
 
-    return 'Maaf, saya belum paham. Saya adalah AI Sejarah CitaRasa.\n\n' +
+    return 'Maaf, saya belum paham. Saya adalah AI Asisten Halal JelajahRasa.\n\n' +
            'Coba tanyakan tentang:\n' +
-           '• Sejarah rendang / gudeg / sate / pempek / rawon\n' +
-           '• Filosofi dan nilai budaya kuliner Nusantara\n' +
-           '• Ancaman kepunahan kuliner daerah\n' +
-           '• Peran kuliner untuk Indonesia Emas 2045\n' +
-           '• Cara beli kuliner di CitaRasa';
+           '• Kehalalan rendang / gudeg / sate / pempek\n' +
+           '• Cara cek sertifikat halal\n' +
+           '• Wajib Halal Oktober 2026\n' +
+           '• Cara beli kuliner di JelajahRasa';
   }
 
-
   // ============================================================
-  // BAGIAN 4.3: AI SEJARAH - UI (INTERFACE)
+  // BAGIAN 4.3: AI ASISTEN HALAL - UI (INTERFACE)
   // ============================================================
 
   const aiToggle = document.getElementById('ai-sejarah-toggle');
@@ -664,6 +650,7 @@
   const aiSend = document.getElementById('ai-sejarah-send');
 
   function addAIMessage(text, sender) {
+    if (!aiMessages) return; // Proteksi jika elemen tidak ada di halaman tertentu
     const msgDiv = document.createElement('div');
     msgDiv.className = `ai-message ${sender}`;
     
@@ -676,6 +663,7 @@
   }
 
   function sendAIMessage() {
+    if (!aiInput) return;
     const userText = aiInput.value.trim();
     if (!userText) return;
 
@@ -698,14 +686,14 @@
     });
   }
 
-  if (aiToggle) {
+  if (aiToggle && aiWindow) {
     aiToggle.addEventListener('click', () => {
       aiWindow.style.display = 'flex';
-      aiInput.focus();
+      if(aiInput) aiInput.focus();
     });
   }
 
-  if (aiClose) {
+  if (aiClose && aiWindow) {
     aiClose.addEventListener('click', () => {
       aiWindow.style.display = 'none';
     });
@@ -756,21 +744,11 @@
 
 
   // ============================================================
-  // ============================================================
   // BAGIAN 7: API PREDIKSI MINAT (RANDOM FOREST)
-  // ============================================================
-  // ============================================================
-  // MENGHUBUNGKAN CITARASA DENGAN AI RANDOM FOREST
-  // ENDPOINT: https://cita-rasa.onrender.com/predict
   // ============================================================
 
   const API_URL = 'https://cita-rasa.onrender.com/predict';
 
-  /**
-   * Fungsi untuk memprediksi minat pengguna terhadap kuliner UMKM
-   * @param {Object} data - {usia, status, frekuensi, sumber_info, promosi}
-   * @returns {Promise<Object|null>} {minat, kategori} atau null
-   */
   async function prediksiMinat(data) {
     try {
       const response = await fetch(API_URL, {
@@ -792,12 +770,7 @@
     }
   }
 
-  /**
-   * Fungsi untuk menampilkan prediksi di halaman
-   * Panggil saat tombol "Cek Minat" diklik
-   */
   async function tampilkanPrediksi() {
-    // Ambil nilai dari input form (default jika tidak ada)
     const usia = parseInt(document.getElementById('input-usia')?.value) || 1;
     const status = parseInt(document.getElementById('input-status')?.value) || 1;
     const frekuensi = parseInt(document.getElementById('input-frekuensi')?.value) || 2;
@@ -847,9 +820,6 @@
     }
   }
 
-  // ============================================================
-  // Hubungkan ke tombol (jika ada di HTML)
-  // ============================================================
   document.addEventListener('DOMContentLoaded', function() {
     const btnPrediksi = document.getElementById('btn-prediksi');
     if (btnPrediksi) {
